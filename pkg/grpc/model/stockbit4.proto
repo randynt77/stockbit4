@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package stockbit4;
+
+option go_package = "./";
+
+service Stockbit4 {
+  rpc GetMovieData (GetMovieDataRequest) returns (GetMovieDataResponse) {}
+}
+
+message GetMovieDataRequest{
+  string Keyword = 1;
+  int32 Page = 2;
+}
+
+message GetGmStatShopTransactionRequest{
+  uint64 ShopID = 1;
+}
+
+message MovieData {
+    string Title = 1;
+    string Year = 2;
+    string ImdbID = 3;
+    string Type = 4;
+    string Poster = 5;
+  }
+
+message GetMovieDataResponse{
+  repeated MovieData MoviesData= 1;
+}
+
